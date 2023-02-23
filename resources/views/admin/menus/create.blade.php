@@ -7,7 +7,7 @@
 
   <div class="flex flex-col justify-center py-12 items-center">
     <div class="flex m-2 p-2">
-      <a href="{{ route('admin.categories.index')}}"
+      <a href="{{ route('admin.menus.index')}}"
         class="px-4 py-2 bg-indigo-500 hover:bg-indigo-700 rounded-lg text-white">Go Back</a>
     </div>
     <div class="bg-slate-200 flex flex-col items-center rounded-lg">
