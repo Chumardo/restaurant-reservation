@@ -32,6 +32,14 @@
           </div>
 
           <div class="sm:col-span-6">
+            <label for="price" class="block text-sm font-medium text-gray-700">Price</label>
+            <div class="mt-1">
+              <input type="number" min="0.00" max="10000.00" step="0.01" id="price" name="price"
+                class="block w-full appearance-none bg-white border border-gray-400 rounded-md">
+            </div>
+          </div>
+
+          <div class="sm:col-span-6">
             <label for="body" class="block text-sm font-medium text-gray-700">Description</label>
             <div class="mt-1">
               <textarea name="body" id="body" rows="3"
@@ -40,9 +48,9 @@
           </div>
 
           <div class="sm:col-span-6">
-            <label for="body" class="block text-sm font-medium text-gray-700">Categories</label>
-            <div class="mt-1">
-              <select>
+            <label for="categories" class="block text-sm font-medium text-gray-700">Categories</label>
+            <div class="mt-1 w-full">
+              <select class="w-full text-center" id="categories" name="categories[]">
                 @foreach ($categories as $category)
                 <option> {{ $category->name }}</option>
                 @endforeach
