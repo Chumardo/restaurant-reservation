@@ -14,11 +14,12 @@
       <div class="flex">
       </div>
       <div class="divide-y divide-gray-200 p-5 mt-5">
-        <form enctype="multipart/form-data">
+        <form method="POST" action="{{ route('admin.categories.store') }}" enctype="multipart/form-data">
+          @csrf
           <div class="sm:col-span-6">
-            <label for="title" class="block text-sm font-medium text-gray-700">Name</label>
+            <label for="name" class="block text-sm font-medium text-gray-700">Name</label>
             <div class="mt-1">
-              <input type="text" id="title" wire:model.lazy="title" name="title"
+              <input type="text" id="name" name="name"
                 class="block w-full appearance-none bg-white border border-gray-400 rounded-md">
             </div>
           </div>
@@ -26,15 +27,15 @@
           <div class="sm:col-span-6">
             <label for="image" class="block text-sm font-medium text-gray-700">Image</label>
             <div class="mt-1">
-              <input type="file" id="image" wire:model.lazy="image" name="image"
+              <input type="file" id="image" name="image"
                 class="block w-full appearance-none bg-white border border-gray-400 rounded-md">
             </div>
           </div>
 
           <div class="sm:col-span-6">
-            <label for="body" class="block text-sm font-medium text-gray-700">Description</label>
+            <label for="description" class="block text-sm font-medium text-gray-700">Description</label>
             <div class="mt-1">
-              <textarea name="body" id="body" rows="3" wire:model.lazy="body"
+              <textarea name="description" id="description" rows="3"
                 class="shadow-sm w-full focus:ring-indigo-500 appearance-none bg-white border border-gray-400 rounded-md"></textarea>
             </div>
           </div>
