@@ -53,7 +53,7 @@
             <div class="mt-1 w-full">
               <select class="w-full text-center" id="categories" name="categories[]">
                 @foreach ($categories as $category)
-                <option> {{ $category->name }}</option>
+                <option value="{{ $category->id }}"> {{ $category->name }}</option>
                 @endforeach
               </select>
             </div>
