@@ -18,7 +18,7 @@
           <div class="sm:col-span-6">
             <label for="title" class="block text-sm font-medium text-gray-700">Name</label>
             <div class="mt-1">
-              <input type="text" id="title" wire:model.lazy="title" name="title"
+              <input type="text" id="title" name="title"
                 class="block w-full appearance-none bg-white border border-gray-400 rounded-md">
             </div>
           </div>
@@ -26,7 +26,7 @@
           <div class="sm:col-span-6">
             <label for="image" class="block text-sm font-medium text-gray-700">Image</label>
             <div class="mt-1">
-              <input type="file" id="image" wire:model.lazy="image" name="image"
+              <input type="file" id="image" name="image"
                 class="block w-full appearance-none bg-white border border-gray-400 rounded-md">
             </div>
           </div>
@@ -34,8 +34,19 @@
           <div class="sm:col-span-6">
             <label for="body" class="block text-sm font-medium text-gray-700">Description</label>
             <div class="mt-1">
-              <textarea name="body" id="body" rows="3" wire:model.lazy="body"
+              <textarea name="body" id="body" rows="3"
                 class="shadow-sm w-full focus:ring-indigo-500 appearance-none bg-white border border-gray-400 rounded-md"></textarea>
+            </div>
+          </div>
+
+          <div class="sm:col-span-6">
+            <label for="body" class="block text-sm font-medium text-gray-700">Categories</label>
+            <div class="mt-1">
+              <select>
+                @foreach ($categories as $category)
+                <option> {{ $category->name }}</option>
+                @endforeach
+              </select>
             </div>
           </div>
           <div class="flex justify-center items-center mt-2">
