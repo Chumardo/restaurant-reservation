@@ -41,11 +41,9 @@ class MenuController extends Controller
             'description' => $request->description,
             'image' => $image,
             'price' => $request->price,
+            'category_id' => $request->categories
         ]);
 
-        if($request->has('categories')) {
-            $menu->categories()->attach($request->categories);
-        }
 
         return to_route('admin.menus.index');
     }
@@ -100,8 +98,11 @@ class MenuController extends Controller
     /**
      * Remove the specified resource from storage.
      */
-    public function destroy(string $id)
+    public function destroy(Menu $menu)
     {
-        //
+        Storage::delete($menu->image);
+        $menu->delete();
+
+        return to_route('admin.categories.index');
     }
 }
