@@ -41,7 +41,7 @@ class MenuController extends Controller
             'description' => $request->description,
             'image' => $image,
             'price' => $request->price,
-            'category_id' => $request->categories
+            'category_id' => $request->categories[0]
         ]);
 
 

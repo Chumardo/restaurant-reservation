@@ -58,7 +58,7 @@
             <div class="mt-1 w-full">
               <select class="w-full text-center" id="categories" name="categories[]">
                 @foreach ($categories as $category)
-                <option value="{{ $category->id }}" @selected($menu->categories->contains($category))> {{
+                <option value="{{ $category->id }}" @selected($category->id == $menu->category_id )> {{
                   $category->name }}</option>
                 @endforeach
               </select>
