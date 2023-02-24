@@ -74,8 +74,11 @@ class MenuController extends Controller
             'name' => 'required',
             'description' => 'required',
             'price' => 'required',
+            'categories' => 'required'
         ]);
+
         $image = $menu->image;
+
         if($request->hasFile('image')) {
             Storage::delete([$menu->image]);
             $image = $request->file('image')->store('public/menus');
@@ -85,12 +88,9 @@ class MenuController extends Controller
             'name' => $request->name,
             'description' => $request->description,
             'image' => $image,
-            'price' => $request->price
+            'price' => $request->price,
+            'category_id' => $request->categories[0]
         ]);
-
-        if($request->has('categories')) {
-            $menu->categories()->sync($request->categories);
-        }
 
         return to_route('admin.menus.index');
     }
@@ -103,6 +103,6 @@ class MenuController extends Controller
         Storage::delete($menu->image);
         $menu->delete();
 
-        return to_route('admin.categories.index');
+        return to_route('admin.menus.index');
     }
 }
