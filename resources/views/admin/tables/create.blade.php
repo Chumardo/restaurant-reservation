@@ -26,7 +26,7 @@
           <div class="sm:col-span-6">
             <label for="guest_number" class="block text-sm font-medium text-gray-700">Guest Number</label>
             <div class="mt-1">
-              <input type="number" id="guest_number" name="guest_number"
+              <input type="number" id="guest_number" name="guest_number" min="0.00" max="10" step="1"
                 class="block w-full appearance-none bg-white border border-gray-400 rounded-md">
             </div>
           </div>
@@ -34,25 +34,28 @@
           <div class="sm:col-span-6">
             <label for="status" class="block text-sm font-medium text-gray-700">Status</label>
             <div class="mt-1 w-full">
-              <select class="w-full text-center" id="status" name="status"">
-                <option value=""></option>
+              <select class="w-full text-center" id="location" name="location"">
+                @foreach (App\Enums\TableStatus::cases() as $status)
+                <option value=" {{ $status->value }}">{{ $status->name }}</option>
+                @endforeach
               </select>
             </div>
           </div>
 
           <div class=" sm:col-span-6">
-                <label for="location" class="block text-sm font-medium text-gray-700">Location</label>
-                <div class="mt-1 w-full">
-                  <select class="w-full text-center" id="location" name="location"">
-                <option value=""></option>
+            <label for="location" class="block text-sm font-medium text-gray-700">Location</label>
+            <div class="mt-1 w-full">
+              <select class="w-full text-center" id="location" name="location"">
+                    @foreach (App\Enums\TableLocation::cases() as $location)
+                    <option value=" {{ $location->value }}">{{ $location->name }}</option>
+                @endforeach
               </select>
             </div>
           </div>
 
           <div class=" flex justify-center items-center mt-2">
-                    <button type="submit"
-                      class="px-4 py-2 text-white bg-green-500 hover:bg-green-600 rounded-lg">Store</button>
-                </div>
+            <button type="submit" class="px-4 py-2 text-white bg-green-500 hover:bg-green-600 rounded-lg">Store</button>
+          </div>
         </form>
       </div>
     </div>
