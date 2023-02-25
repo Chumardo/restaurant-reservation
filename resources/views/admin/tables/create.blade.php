@@ -24,23 +24,35 @@
           </div>
 
           <div class="sm:col-span-6">
-            <label for="image" class="block text-sm font-medium text-gray-700">Image</label>
+            <label for="guest_number" class="block text-sm font-medium text-gray-700">Guest Number</label>
             <div class="mt-1">
-              <input type="file" id="image" wire:model.lazy="image" name="image"
+              <input type="number" id="guest_number" name="guest_number"
                 class="block w-full appearance-none bg-white border border-gray-400 rounded-md">
             </div>
           </div>
 
           <div class="sm:col-span-6">
-            <label for="body" class="block text-sm font-medium text-gray-700">Description</label>
-            <div class="mt-1">
-              <textarea name="body" id="body" rows="3" wire:model.lazy="body"
-                class="shadow-sm w-full focus:ring-indigo-500 appearance-none bg-white border border-gray-400 rounded-md"></textarea>
+            <label for="status" class="block text-sm font-medium text-gray-700">Status</label>
+            <div class="mt-1 w-full">
+              <select class="w-full text-center" id="status" name="status"">
+                <option value=""></option>
+              </select>
             </div>
           </div>
-          <div class="flex justify-center items-center mt-2">
-            <button type="submit" class="px-4 py-2 text-white bg-green-500 hover:bg-green-600 rounded-lg">Store</button>
+
+          <div class=" sm:col-span-6">
+                <label for="location" class="block text-sm font-medium text-gray-700">Location</label>
+                <div class="mt-1 w-full">
+                  <select class="w-full text-center" id="location" name="location"">
+                <option value=""></option>
+              </select>
+            </div>
           </div>
+
+          <div class=" flex justify-center items-center mt-2">
+                    <button type="submit"
+                      class="px-4 py-2 text-white bg-green-500 hover:bg-green-600 rounded-lg">Store</button>
+                </div>
         </form>
       </div>
     </div>
