@@ -14,12 +14,13 @@
       <div class="flex">
       </div>
       <div class="divide-y divide-gray-200 p-5 mt-5">
-        <form method="POST" action="{{ route('admin.tables.store') }}">
+        <form method="POST" action="{{ route('admin.tables.update', $table->id) }}">
           @csrf
+          @method('PUT')
           <div class="sm:col-span-6">
             <label for="name" class="block text-sm font-medium text-gray-700">Name</label>
             <div class="mt-1">
-              <input type="text" id="name" name="name"
+              <input type="text" id="name" name="name" value="{{ $table->name }}"
                 class="block w-full appearance-none bg-white border border-gray-400 rounded-md">
             </div>
           </div>
@@ -28,6 +29,7 @@
             <label for="guest_number" class="block text-sm font-medium text-gray-700">Guest Number</label>
             <div class="mt-1">
               <input type="number" id="guest_number" name="guest_number" min="0.00" max="10" step="1"
+                value="{{ $table->guest_number }}"
                 class="block w-full appearance-none bg-white border border-gray-400 rounded-md">
             </div>
           </div>
@@ -37,7 +39,8 @@
             <div class="mt-1 w-full">
               <select class="w-full text-center" id="status" name="status"">
                 @foreach (App\Enums\TableStatus::cases() as $status)
-                <option value=" {{ $status->value }}">{{ $status->name }}</option>
+                <option value=" {{ $status->value }}" @selected($table->status->value == $status->value)>{{
+                $status->name }}</option>
                 @endforeach
               </select>
             </div>
@@ -48,7 +51,8 @@
             <div class="mt-1 w-full">
               <select class="w-full text-center" id="location" name="location"">
                     @foreach (App\Enums\TableLocation::cases() as $location)
-                    <option value=" {{ $location->value }} ">{{ $location->name }}</option>
+                    <option value=" {{ $location->value }} ">{{ $location->name }} @selected($table->status->value ==
+                $status->value)</option>
                 @endforeach
               </select>
             </div>
