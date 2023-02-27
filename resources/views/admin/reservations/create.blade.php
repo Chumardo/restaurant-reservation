@@ -20,48 +20,66 @@
             <label for="first_name" class="block text-sm font-medium text-gray-700">First Name</label>
             <div class="mt-1">
               <input type="text" id="first_name" name="first_name"
-                class="block w-full appearance-none bg-white border border-gray-400 rounded-md">
+                class="block w-full appearance-none bg-white border border-gray-400 rounded-md @error('first_name') border-red-600 @enderror">
             </div>
+            @error('first_name')
+            <div class="text-sm text-red-600">{{ $message }}</div>
+            @enderror
           </div>
 
           <div class="sm:col-span-6">
             <label for="last_name" class="block text-sm font-medium text-gray-700">Last Name</label>
             <div class="mt-1">
               <input type="text" id="last_name" name="last_name"
-                class="block w-full appearance-none bg-white border border-gray-400 rounded-md">
+                class="block w-full appearance-none bg-white border border-gray-400 rounded-md @error('last_name') border-red-600 @enderror">
             </div>
+            @error('last_name')
+            <div class="text-sm text-red-600">{{ $message }}</div>
+            @enderror
           </div>
 
           <div class="sm:col-span-6">
             <label for="email" class="block text-sm font-medium text-gray-700">Email</label>
             <div class="mt-1">
               <input type="email" id="email" name="email"
-                class="block w-full appearance-none bg-white border border-gray-400 rounded-md">
+                class="block w-full appearance-none bg-white border border-gray-400 rounded-md @error('email') border-red-600 @enderror">
             </div>
+            @error('email')
+            <div class="text-sm text-red-600">{{ $message }}</div>
+            @enderror
           </div>
 
           <div class="sm:col-span-6">
             <label for="tel_number" class="block text-sm font-medium text-gray-700">Phone number</label>
             <div class="mt-1">
               <input type="text" id="tel_number" name="tel_number"
-                class="block w-full appearance-none bg-white border border-gray-400 rounded-md">
+                class="block w-full appearance-none bg-white border border-gray-400 rounded-md @error('tel_number') border-red-600 @enderror">
             </div>
+            @error('tel_number')
+            <div class="text-sm text-red-600">{{ $message }}</div>
+            @enderror
           </div>
 
           <div class="sm:col-span-6">
             <label for="res_date" class="block text-sm font-medium text-gray-700">Reservation Date</label>
             <div class="mt-1">
               <input type="datetime-local" id="res_date" name="res_date"
-                class="block w-full appearance-none bg-white border border-gray-400 rounded-md">
+                class="block w-full appearance-none bg-white border border-gray-400 rounded-md @error('res_date') border-red-600 @enderror">
             </div>
+            @error('res_date')
+            <div class="text-sm text-red-600">{{ $message }}</div>
+            @enderror
           </div>
 
           <div class="sm:col-span-6">
             <label for="guest_number" class="block text-sm font-medium text-gray-700">Guest Number</label>
             <div class="mt-1">
               <input type="number" id="guest_number" name="guest_number" min="0.00" max="10" step="1"
-                class="block w-full appearance-none bg-white border border-gray-400 rounded-md">
+                class="block w-full appearance-none bg-white border border-gray-400 rounded-md @error('guest_number') border-red-600 @enderror">
             </div>
+            @error('guest_number')
+            <div class="text-sm text-red-600">{{ $message }}</div>
+            @enderror
           </div>
 
           <div class="sm:col-span-6">
