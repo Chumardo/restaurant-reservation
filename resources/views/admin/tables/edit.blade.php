@@ -21,8 +21,11 @@
             <label for="name" class="block text-sm font-medium text-gray-700">Name</label>
             <div class="mt-1">
               <input type="text" id="name" name="name" value="{{ $table->name }}"
-                class="block w-full appearance-none bg-white border border-gray-400 rounded-md">
+                class="block w-full appearance-none bg-white border border-gray-400 rounded-md @error('name') border-red-600 @enderror">
             </div>
+            @error('name')
+            <div class="text-sm text-red-600">{{ $message }}</div>
+            @enderror
           </div>
 
           <div class="sm:col-span-6">
@@ -30,8 +33,11 @@
             <div class="mt-1">
               <input type="number" id="guest_number" name="guest_number" min="0.00" max="10" step="1"
                 value="{{ $table->guest_number }}"
-                class="block w-full appearance-none bg-white border border-gray-400 rounded-md">
+                class="block w-full appearance-none bg-white border border-gray-400 rounded-md @error('guest_number') border-red-600 @enderror">
             </div>
+            @error('guest_number')
+            <div class="text-sm text-red-600">{{ $message }}</div>
+            @enderror
           </div>
 
           <div class="sm:col-span-6">
