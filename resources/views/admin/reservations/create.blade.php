@@ -14,31 +14,69 @@
       <div class="flex">
       </div>
       <div class="divide-y divide-gray-200 p-5 mt-5">
-        <form enctype="multipart/form-data">
+        <form method="POST" action="{{ route('admin.reservations.store') }}">
+          @csrf
           <div class="sm:col-span-6">
-            <label for="title" class="block text-sm font-medium text-gray-700">Name</label>
+            <label for="first_name" class="block text-sm font-medium text-gray-700">First Name</label>
             <div class="mt-1">
-              <input type="text" id="title" wire:model.lazy="title" name="title"
+              <input type="text" id="first_name" name="first_name"
                 class="block w-full appearance-none bg-white border border-gray-400 rounded-md">
             </div>
           </div>
 
           <div class="sm:col-span-6">
-            <label for="image" class="block text-sm font-medium text-gray-700">Image</label>
+            <label for="last_name" class="block text-sm font-medium text-gray-700">Last Name</label>
             <div class="mt-1">
-              <input type="file" id="image" wire:model.lazy="image" name="image"
+              <input type="text" id="last_name" name="last_name"
                 class="block w-full appearance-none bg-white border border-gray-400 rounded-md">
             </div>
           </div>
 
           <div class="sm:col-span-6">
-            <label for="body" class="block text-sm font-medium text-gray-700">Description</label>
+            <label for="email" class="block text-sm font-medium text-gray-700">Email</label>
             <div class="mt-1">
-              <textarea name="body" id="body" rows="3" wire:model.lazy="body"
-                class="shadow-sm w-full focus:ring-indigo-500 appearance-none bg-white border border-gray-400 rounded-md"></textarea>
+              <input type="email" id="email" name="email"
+                class="block w-full appearance-none bg-white border border-gray-400 rounded-md">
             </div>
           </div>
-          <div class="flex justify-center items-center mt-2">
+
+          <div class="sm:col-span-6">
+            <label for="tel_number" class="block text-sm font-medium text-gray-700">Phone number</label>
+            <div class="mt-1">
+              <input type="text" id="tel_number" name="tel_number"
+                class="block w-full appearance-none bg-white border border-gray-400 rounded-md">
+            </div>
+          </div>
+
+          <div class="sm:col-span-6">
+            <label for="res_date" class="block text-sm font-medium text-gray-700">Reservation Date</label>
+            <div class="mt-1">
+              <input type="datetime-local" id="res_date" name="res_date"
+                class="block w-full appearance-none bg-white border border-gray-400 rounded-md">
+            </div>
+          </div>
+
+          <div class="sm:col-span-6">
+            <label for="guest_number" class="block text-sm font-medium text-gray-700">Guest Number</label>
+            <div class="mt-1">
+              <input type="number" id="guest_number" name="guest_number" min="0.00" max="10" step="1"
+                class="block w-full appearance-none bg-white border border-gray-400 rounded-md">
+            </div>
+          </div>
+
+          <div class="sm:col-span-6">
+            <label for="table_id" class="block text-sm font-medium text-gray-700">Table</label>
+            <div class="mt-1 w-full">
+              <select class="w-full text-center" id="table_id" name="table_id"">
+                @foreach ($tables as $table)
+                <option value=" {{ $table->id }}">{{ $table->name }}</option>
+                @endforeach
+              </select>
+            </div>
+          </div>
+
+
+          <div class=" flex justify-center items-center mt-2">
             <button type="submit" class="px-4 py-2 text-white bg-green-500 hover:bg-green-600 rounded-lg">Store</button>
           </div>
         </form>
