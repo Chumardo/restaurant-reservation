@@ -87,7 +87,7 @@
             <div class="mt-1 w-full">
               <select class="w-full text-center" id="table_id" name="table_id"">
                 @foreach ($tables as $table)
-                <option value=" {{ $table->id }}">{{ $table->name }}</option>
+                <option value=" {{ $table->id }}">{{ $table->name }} ({{ $table->guest_number }})</option>
                 @endforeach
               </select>
             </div>
