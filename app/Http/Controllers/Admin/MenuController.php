@@ -45,7 +45,7 @@ class MenuController extends Controller
         ]);
 
 
-        return to_route('admin.menus.index');
+        return to_route('admin.menus.index')->with('success', 'Menu created successfully!');
     }
 
     /**
@@ -92,7 +92,7 @@ class MenuController extends Controller
             'category_id' => $request->categories[0]
         ]);
 
-        return to_route('admin.menus.index');
+        return to_route('admin.menus.index')->with('success', 'Menu updated successfully!');
     }
 
     /**
@@ -103,6 +103,6 @@ class MenuController extends Controller
         Storage::delete($menu->image);
         $menu->delete();
 
-        return to_route('admin.menus.index');
+        return to_route('admin.menus.index')->with('danger', 'Menu deleted successfully!');
     }
 }
