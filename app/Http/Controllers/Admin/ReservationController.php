@@ -7,6 +7,7 @@ use App\Http\Controllers\Controller;
 use App\Http\Requests\ReservationStoreRequest;
 use App\Models\Reservation;
 use App\Models\Table;
+use Carbon\Carbon;
 use Illuminate\Http\Request;
 
 class ReservationController extends Controller
@@ -37,6 +38,13 @@ class ReservationController extends Controller
         $table = Table::findOrFail($request->table_id);
         if($request->guest_number > $table->guest_number) {
             return back()->with('danger', 'Please choose the table base on guests number.');
+        }
+        $request_date = Carbon::parse($request->res_date);
+        foreach ($table->reservations as $res) {
+            $res_date = Carbon::parse($res->res_date);
+            if($res_date->format('Y-m-d') == $request_date->format('Y-m-d')) {
+                return back()->with('danger', 'This table is reserved for this day');
+            }
         }
         Reservation::create($request->validated());
 

@@ -15,7 +15,8 @@ class Table extends Model
 
     protected $casts = [
         'status' =>TableStatus::class,
-        'location' =>TableLocation::class
+        'location' =>TableLocation::class,
+        'res_date' => 'datetime'
     ];
 
     public function reservations()
