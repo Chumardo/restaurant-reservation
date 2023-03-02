@@ -27,7 +27,7 @@
         <nav class="container px-6 py-8 mx-auto md:flex md:justify-between md:items-center">
             <div class="flex items-center justify-between">
                 <a class="text-xl font-bold text-transparent bg-clip-text bg-gradient-to-r from-yellow-400 to-red-500 md:text-2xl hover:text-white"
-                    href="#">
+                    href="/">
                     Restaurant
                 </a>
                 <!-- Mobile menu button -->
