@@ -16,6 +16,12 @@
     @vite(['resources/css/app.css', 'resources/js/app.js'])
 </head>
 
+<style>
+    body {
+        background-color: rgb(17 24 39);
+    }
+</style>
+
 <body class="font-sans text-gray-900 antialiased">
     <div class="bg-purple-900 shadow-md" x-data="{ isOpen: false }">
         <nav class="container px-6 py-8 mx-auto md:flex md:justify-between md:items-center">
