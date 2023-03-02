@@ -43,12 +43,14 @@
                 class="flex-col mt-8 space-y-4 md:flex md:space-y-0 md:flex-row md:items-center md:space-x-10 md:mt-0">
                 <a class="text-transparent bg-clip-text bg-gradient-to-r from-yellow-400 to-red-500 hover:text-white"
                     href="/">Home</a>
-                <a class="text-transparent bg-clip-text bg-gradient-to-r from-yellow-400 to-red-500 hover:text-white"
+                <a href="{{ route('categories.index') }}"
+                    class="text-transparent bg-clip-text bg-gradient-to-r from-yellow-400 to-red-500 hover:text-white"
                     href="">Categories</a>
-                <a class="text-transparent bg-clip-text bg-gradient-to-r from-yellow-400 to-red-500 hover:text-white"
+                <a href="{{ route('menus.index') }}"
+                    class="text-transparent bg-clip-text bg-gradient-to-r from-yellow-400 to-red-500 hover:text-white"
                     href="">Our Menu</a>
                 <a class="text-transparent bg-clip-text bg-gradient-to-r from-yellow-400 to-red-500 hover:text-white"
-                    href="">Make Reservation</a>
+                    href="{{ route('reservations.index') }}">Make Reservation</a>
 
             </div>
         </nav>
