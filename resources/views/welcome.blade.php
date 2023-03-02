@@ -18,7 +18,7 @@
         <div class="container max-w-lg px-4 py-32 mx-auto text-left bg-center bg-no-repeat bg-cover md:max-w-none md:text-center"
             style="background-image: url('https://cdn.pixabay.com/photo/2016/11/18/14/39/beans-1834984_960_720.jpg')">
             <h1
-                class="font-mono text-3xl font-extrabold text-transparent bg-clip-text text-purple-900 md:text-center sm:leading-none lg:text-5xl">
+                class="font-mono text-3xl font-extrabold bg-clip-text text-purple-900 md:text-center sm:leading-none lg:text-5xl">
                 <span class="inline md:block">Welcome To Our Restaurant</span>
             </h1>
             <div class="flex flex-col items-center mt-12 text-center">
@@ -79,7 +79,7 @@
                         <div class="w-full lg:max-w-md">
                             <h2 class="mb-4 text-2xl font-bold">About Us</h2>
                             <h2
-                                class="mb-4 text-3xl font-bold text-transparent bg-clip-text bg-gradient-to-r from-green-400 to-blue-500">
+                                class="mb-4 text-3xl font-bold text-transparent bg-clip-text bg-gradient-to-r from-yellow-400 to-red-500">
                                 WHY CHOOSE US?</h2>
 
                             <p class="mb-4 font-medium tracking-tight text-gray-400 xl:mb-6">Lorem ipsum dolor sit amet
