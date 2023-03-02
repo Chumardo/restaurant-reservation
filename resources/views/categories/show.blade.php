@@ -1,7 +1,7 @@
 <x-guest-layout>
   <div class="container w-full px-5 py-6 mx-auto">
-    <div class="pb-4 text-center">
-      <h1 class="text-xl font-semibold md:text-2xl text-green-400">
+    <div class="flex justify-start pb-4 text-center">
+      <h1 class="text-lg font-bold text-gray-500 mb-10">
         Category: {{ $category->name }}</h1>
     </div>
     <div class="grid lg:grid-cols-4 gap-y-6">
