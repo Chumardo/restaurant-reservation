@@ -1,5 +1,9 @@
 <x-guest-layout>
   <div class="container w-full px-5 py-6 mx-auto">
+    <div class="pb-4 text-center">
+      <h1 class="text-xl font-semibold md:text-2xl text-green-400">
+        Category: {{ $category->name }}</h1>
+    </div>
     <div class="grid lg:grid-cols-4 gap-y-6">
       @foreach ($category->menus as $menu)
       <div class="max-w-xs mx-4 mb-2 rounded-lg shadow-lg divide-y-2 divide-black">
