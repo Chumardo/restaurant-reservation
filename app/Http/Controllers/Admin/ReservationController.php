@@ -48,7 +48,7 @@ class ReservationController extends Controller
         }
         Reservation::create($request->validated());
 
-        return to_route('admin.reservations.index');
+        return to_route('admin.reservations.index')->with('success', 'Reservation created successfully.');
     }
 
     /**
@@ -71,9 +71,24 @@ class ReservationController extends Controller
     /**
      * Update the specified resource in storage.
      */
-    public function update(Request $request, string $id)
+    public function update(ReservationStoreRequest $request, Reservation $reservation)
     {
-        //
+        $table = Table::findOrFail($request->table_id);
+        if($request->guest_number > $table->guest_number) {
+            return back()->with('danger', 'Please choose the table base on guests number.');
+        }
+        $request_date = Carbon::parse($request->res_date);
+        $reservations = $table->reservations()->where('id', '!=', $reservation->id)->get();
+        foreach ($reservations as $res) {
+            $res_date = Carbon::parse($res->res_date);
+            if($res_date->format('Y-m-d') == $request_date->format('Y-m-d')) {
+                return back()->with('danger', 'This table is reserved for this day');
+            }
+        }
+
+        $reservation->update($request->validated());
+
+        return to_route('admin.reservations.index')->with('success', 'Reservation updated successfully.');
     }
 
     /**
