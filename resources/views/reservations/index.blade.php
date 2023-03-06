@@ -88,7 +88,7 @@
                     <select id="table_id" name="table_id" class="form-multiselect block w-full mt-1">
                       @foreach ($tables as $table)
                       <option value="{{ $table->id }}" @selected(old('table_id')==$table->id)>
-                        {{ $table->name }}
+                        {{ $table->name }} - {{ $table->location }}
                         ({{ $table->guest_number }} Guests)
                       </option>
                       @endforeach

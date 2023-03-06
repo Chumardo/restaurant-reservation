@@ -24,13 +24,13 @@ class ReservationController extends Controller
     {
         $table = Table::findOrFail($request->table_id);
         if($request->guest_number > $table->guest_number) {
-            return back()->with('guest_error', 'Please choose the table base on guests number.');
+            return back()->with('guest_error', 'Please choose the table base on guests number.')->withInput();;
         }
         $request_date = Carbon::parse($request->res_date);
         foreach ($table->reservations as $res) {
             $res_date = Carbon::parse($res->res_date);
             if($res_date->format('Y-m-d') == $request_date->format('Y-m-d')) {
-                return back()->with('table_error', 'This table is reserved for this day');
+                return back()->with('table_error', 'This table is reserved for this day')->withInput();
             }
         }
         Reservation::create($request->validated());
