@@ -17,7 +17,7 @@
                   <label for="first_name" class="block text-sm font-medium text-white"> First Name
                   </label>
                   <div class="mt-1">
-                    <input type="text" id="first_name" name="first_name"
+                    <input type="text" id="first_name" name="first_name" value="{{ old('first_name') }}"
                       class="block w-full appearance-none bg-white border border-gray-400 rounded-md py-2 px-3 text-base leading-normal transition duration-150 ease-in-out sm:text-sm sm:leading-5" />
                   </div>
                   @error('first_name')
@@ -28,7 +28,7 @@
                   <label for="last_name" class="block text-sm font-medium text-white"> Last Name
                   </label>
                   <div class="mt-1">
-                    <input type="text" id="last_name" name="last_name"
+                    <input type="text" id="last_name" name="last_name" value="{{ old('last_name') }}"
                       class="block w-full appearance-none bg-white border border-gray-400 rounded-md py-2 px-3 text-base leading-normal transition duration-150 ease-in-out sm:text-sm sm:leading-5" />
                   </div>
                   @error('last_name')
@@ -38,7 +38,7 @@
                 <div class="sm:col-span-6">
                   <label for="email" class="block text-sm font-medium text-white"> Email </label>
                   <div class="mt-1">
-                    <input type="email" id="email" name="email"
+                    <input type="email" id="email" name="email" value="{{ old('email') }}"
                       class="block w-full appearance-none bg-white border border-gray-400 rounded-md py-2 px-3 text-base leading-normal transition duration-150 ease-in-out sm:text-sm sm:leading-5" />
                   </div>
                   @error('email')
@@ -50,7 +50,7 @@
                     number
                   </label>
                   <div class="mt-1">
-                    <input type="text" id="tel_number" name="tel_number"
+                    <input type="text" id="tel_number" name="tel_number" value="{{ old('tel_number') }}"
                       class="block w-full appearance-none bg-white border border-gray-400 rounded-md py-2 px-3 text-base leading-normal transition duration-150 ease-in-out sm:text-sm sm:leading-5" />
                   </div>
                   @error('tel_number')
@@ -62,7 +62,7 @@
                     Date
                   </label>
                   <div class="mt-1">
-                    <input type="datetime-local" id="res_date" name="res_date"
+                    <input type="datetime-local" id="res_date" name="res_date" value="{{ old('res_date') }}"
                       min="{{ $min_date->format('Y-m-d\TH:i:s') }}" max="{{ $max_date->format('Y-m-d\TH:i:s') }}"
                       class="block w-full appearance-none bg-white border border-gray-400 rounded-md py-2 px-3 text-base leading-normal transition duration-150 ease-in-out sm:text-sm sm:leading-5" />
                   </div>
@@ -75,7 +75,7 @@
                     Number
                   </label>
                   <div class="mt-1">
-                    <input type="number" id="guest_number" name="guest_number"
+                    <input type="number" id="guest_number" name="guest_number" value="{{ old('guest_number') }}"
                       class="block w-full appearance-none bg-white border border-gray-400 rounded-md py-2 px-3 text-base leading-normal transition duration-150 ease-in-out sm:text-sm sm:leading-5" />
                   </div>
                   @if(session()->has('guest_error'))
@@ -87,7 +87,7 @@
                   <div class="mt-1">
                     <select id="table_id" name="table_id" class="form-multiselect block w-full mt-1">
                       @foreach ($tables as $table)
-                      <option value="{{ $table->id }}">
+                      <option value="{{ $table->id }}" @selected(old('table_id')==$table->id)>
                         {{ $table->name }}
                         ({{ $table->guest_number }} Guests)
                       </option>

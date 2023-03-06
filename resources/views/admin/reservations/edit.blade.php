@@ -89,7 +89,7 @@
             <div class="mt-1 w-full">
               <select class="w-full text-center" id="table_id" name="table_id"">
                 @foreach ($tables as $table)
-                <option value=" {{ $table->id }}" @selected($table->id == $reservation->table_id)>{{ $table->name }}
+                <option value=" {{ $table->id }}" @selected(old('table_id' == $table->id))>{{ $table->name }}
                 ({{ $table->guest_number }})</option>
                 @endforeach
               </select>
