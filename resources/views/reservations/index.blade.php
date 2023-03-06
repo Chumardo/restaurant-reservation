@@ -78,9 +78,9 @@
                     <input type="number" id="guest_number" name="guest_number"
                       class="block w-full appearance-none bg-white border border-gray-400 rounded-md py-2 px-3 text-base leading-normal transition duration-150 ease-in-out sm:text-sm sm:leading-5" />
                   </div>
-                  @error('guest_number')
-                  <div class="text-sm text-red-400">{{ $message }}</div>
-                  @enderror
+                  @if(session()->has('guest_error'))
+                  <div class="text-sm text-red-400">{{ session()->get('guest_error') }}</div>
+                  @endif
                 </div>
                 <div class="sm:col-span-6">
                   <label for="status" class="block text-sm font-medium text-white">Table</label>
@@ -94,9 +94,9 @@
                       @endforeach
                     </select>
                   </div>
-                  @error('table_id')
-                  <div class="text-sm text-red-400">{{ $message }}</div>
-                  @enderror
+                  @if(session()->has('table_error'))
+                  <div class="text-sm text-red-400">{{ session()->get('table_error') }}</div>
+                  @endif
                 </div>
                 <div class="mt-6 p-4 flex justify-end">
                   <button type="submit" class="px-4 py-2 bg-green-600 hover:bg-green-500 rounded-lg text-white">Make

@@ -31,6 +31,7 @@ Route::get('/categories/{category}', [FrontendCategoryController::class, 'show']
 Route::get('/menus', [FrontendMenuController::class, 'index'])->name('menus.index');
 Route::get('/reservations', [FrontendReservationController::class, 'index'])->name('reservations.index');
 Route::post('/reservations', [FrontendReservationController::class, 'store'])->name('reservations.store');
+Route::get('/thankyou', [FrontendReservationController::class, 'thankyou'])->name('thankyou');
 
 
 Route::get('/dashboard', function () {
